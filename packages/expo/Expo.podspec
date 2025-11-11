@@ -18,7 +18,7 @@ end
 
 reactNativeTargetVersion = reactNativeVersion.split('.')[1].to_i
 
-compiler_flags = get_folly_config()[:compiler_flags]
+compiler_flags = get_folly_config()[:compiler_flags] + ' ' + "-DREACT_NATIVE_TARGET_VERSION=#{reactNativeTargetVersion}"
 
 package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
