@@ -24,10 +24,16 @@ NS_SWIFT_NAME(ExpoReactRootViewFactory)
 /**
  Calls super `viewWithModuleName:initialProperties:launchOptions:` from `RCTRootViewFactory`.
  */
+#if REACT_NATIVE_TARGET_VERSION >= 83
 - (UIView *)superViewWithModuleName:(NSString *)moduleName
                   initialProperties:(nullable NSDictionary *)initialProperties
                       launchOptions:(nullable NSDictionary *)launchOptions
                devMenuConfiguration:(nullable RCTDevMenuConfiguration *)devMenuConfiguration;
+#else
+- (UIView *)superViewWithModuleName:(NSString *)moduleName
+                  initialProperties:(nullable NSDictionary *)initialProperties
+                      launchOptions:(nullable NSDictionary *)launchOptions;
+#endif
 
 @end
 
